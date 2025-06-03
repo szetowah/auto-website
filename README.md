@@ -29,6 +29,16 @@
 3. 默认监听端口：8080
 
 ### 2. Docker 运行
+1. 拉取官方镜像：
+   ```bash
+   docker pull ghcr.io/szetowah/auto-website:latest
+   ```
+2. 运行容器：
+   ```bash
+   docker run -d -p 8080:8080 ghcr.io/szetowah/auto-website:latest
+   ```
+
+如需自行构建镜像：
 1. 构建镜像：
    ```bash
    docker build -t auto-website .
