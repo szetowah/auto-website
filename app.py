@@ -21,6 +21,8 @@ def generate_site():
             logger.error('缺少 html 参数')
             return jsonify({'error': '缺少 html 参数'}), 400
         html_content = data['html']
+        if html_content.strip().startswith('```html') and html_content.strip().endswith('```'):
+            html_content = '\n'.join(html_content.strip().split('\n')[1:-1])
         if not isinstance(html_content, str):
             logger.error('html 参数必须为字符串')
             return jsonify({'error': 'html 参数必须为字符串'}), 400
